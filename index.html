@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Product Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>My E-Commerce Product Page</h1>
+    </header>
+    
+
+    <div class="container">
+
+        <div class="product-card">
+            <img src="images/product1.jpg" alt="Headphones">
+            <h2>Headphones</h2>
+            <p>High-quality sound with noise cancellation.</p>
+            <h3>₹1,999</h3>
+            <p>Quantity: <span id="qty1">0</span></p>
+            <button onclick="addToCart('qty1','Wireless Headphones')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/product2.jpg" alt="Smart Watch">
+            <h2>Smart Watch</h2>
+            <p>Track fitness, heart rate, and notifications.</p>
+            <h3>₹2,499</h3>
+            <p>Quantity: <span id="qty2">0</span></p>
+            <button onclick="addToCart('qty2','Smart Watch')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/product3.jpg" alt="Laptop">
+            <h2>Laptop</h2>
+            <p>Powerful performance for work and study.</p>
+            <h3>₹45,999</h3>
+            <p>Quantity: <span id="qty3">0</span></p>
+            <button onclick="addToCart('qty3','Laptop')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/product4.jpg" alt="Mobile Phone">
+            <h2>Smartphone</h2>
+            <p>Latest features with excellent camera quality.</p>
+            <h3>₹15,999</h3>
+            <p>Quantity: <span id="qty4">0</span></p>
+            <button onclick="addToCart('qty4','SmartPhone')">Add to Cart</button>
+        </div>
+
+    </div>
+    
+    <div style="text-align:center; margin:20px;">
+        <h2>🛒 Cart Items: <span id="cartCount">0</span></h2>
+        <h3>Selected Products:</h3>
+        <ul id="cartList" style="list-style:none;"></ul>
+    </div>
+
+  <script>
+  let totalCartItems = 0;
+  function addToCart(id, productName) {
+    let qty = document.getElementById(id);
+    qty.textContent = parseInt(qty.textContent) + 1;
+    totalCartItems++;
+    document.getElementById("cartCount").textContent = totalCartItems;
+    let li = document.createElement("li");
+    li.textContent = productName;
+    document.getElementById("cartList").appendChild(li);
+}
+</script>
+</body>
+</html>
